@@ -15,7 +15,8 @@ class DB:
 
 
     def create(self,table_name):
-        if not table_name:
+        ''' Создание таблицы баз данных'''
+        if not self.check_exist_table(table_name):
             self.cursor.execute('''CREATE TABLE {}
                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT,
@@ -23,3 +24,4 @@ class DB:
             '''.format(table_name))
         else:
             print("Таблица уже создана и существует")
+
