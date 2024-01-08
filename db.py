@@ -25,3 +25,10 @@ class DB:
         else:
             print("Таблица уже создана и существует")
 
+    def select(self,table_name):
+        arr_table =[]
+        if self.check_exist_table(table_name):
+            self.cursor.execute('''SELECT * FROM {}'''.format(table_name))
+            arr_table = self.cursor.fetchall()
+
+        return arr_table
