@@ -2,15 +2,15 @@ from tkinter import *
 from tkinter import ttk
 class Window:
     ''' Иницилизация '''
-    def __init__(self):
+    def __init__(self, title="window", bg_color="white", width=500, height=500):
         self.window = Tk()
-        self.window.title("Мой проект")
-        self.window.geometry("500x500")
+        self.window.title(title)
+        self.window.configure(bg=bg_color)
+        self.window.geometry(f"{width}x{height}")
 
-    def show(self):
-        btn = ttk.Button(text="Button")
-        btn.pack()
-        self.window.title("Мой проект2")
+
+    def display_db_table(self,table='таблицы'):
+        self.window.title(f"Данные из {table}")
         self.window.mainloop()
 
 
